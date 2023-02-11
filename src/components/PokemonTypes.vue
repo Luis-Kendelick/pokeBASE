@@ -12,6 +12,18 @@ const getTypeColor = (type: string) => {
 </script>
 
 <template>
+  <div
+    class="type-tag"
+    :style="{
+      color: getTypeColor(props.pokeTypes ? props.pokeTypes.type.name : '')
+        .color,
+      backgroundColor: getTypeColor(
+        props.pokeTypes ? props.pokeTypes.type.name : ''
+      ).backgroundColor,
+    }"
+  >
+    <p>{{ props.pokeTypes ? props.pokeTypes.type.name : "Loading..." }}</p>
+  </div>
 </template>
 
 <style scoped>
