@@ -17,4 +17,17 @@ const props = defineProps<{
 </template>
 
 <style scoped>
+.pokemon-photo {
+  margin-top: -20px;
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 </style>
