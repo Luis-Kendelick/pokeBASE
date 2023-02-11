@@ -4,16 +4,17 @@ import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <HelloWorld msg="You did it!!" />
+  <!-- <header> -->
+    <!-- <div class="wrapper"> -->
+      <!-- <HelloWorld msg="You did it!!" /> -->
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+    <!-- </div> -->
+  <!-- </header> -->
+  <nav>
+    <RouterLink to="/" />
+    <RouterLink to="/about" />
+    <RouterLink to="/poke" />
+  </nav>
 
   <RouterView />
 </template>
@@ -22,6 +23,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 header {
   line-height: 1.5;
   max-height: 100vh;
+  display: none;
 }
 
 .logo {
@@ -34,6 +36,7 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  display: none;
 }
 
 nav a.router-link-exact-active {
