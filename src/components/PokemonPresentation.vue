@@ -7,6 +7,22 @@ import {
   PokemonRegionalIndex,
   PokemonTypes,
 } from "./index";
+import { watch, ref } from "vue";
+
+const pokemonToSearch = ref<string>("");
+const handleSearch = () => {
+  usePokemonStore().setPokemonNameToSearch(
+    pokemonToSearch.value.toLocaleLowerCase()
+  );
+};
+
+watch(
+  () => usePokemonStore().pokemonNameToSearch,
+  () => {
+    usePokemonStore().getPokemon();
+  }
+);
+const pokemonPresentationInfo = usePokemonStore();
 </script>
 
 <template>
