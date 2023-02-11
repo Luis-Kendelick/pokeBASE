@@ -13,6 +13,47 @@ export const usePokemonStore = defineStore("pokemon", () => {
   const pokemonName = computed(() => {
     return pokemon.value?.name;
   });
+
+  const pokemonHeight = computed(() => {
+    return (
+      (pokemon.value?.height &&
+        (pokemon.value?.height * 10).toFixed(1) + " cm") ||
+      "... cm"
+    );
+  });
+
+  const pokemonWeight = computed(() => {
+    return (
+      (pokemon.value?.weight &&
+        (pokemon.value?.weight / 10).toFixed(1) + " kg") ||
+      "... kg"
+    );
+  });
+
+  const pokemonTypes = computed(() => {
+    return pokemon.value?.types;
+  });
+
+  const pokemonAbilities = computed(() => {
+    return pokemon.value?.abilities;
+  });
+
+  const pokemonStats = computed(() => {
+    return pokemon.value?.stats;
+  });
+
+  const pokemonSprites = computed(() => {
+    return pokemon.value?.sprites;
+  });
+
+  const pokemonGameIndex = computed(() => {
+    return pokemon.value?.game_indices;
+  });
+
+  const pokemonNationalId = computed(() => {
+    return pokemon.value?.id;
+  });
+
   // actions
   const getPokemon = async () => {
     pokemonNameToSearch.value &&
@@ -34,5 +75,14 @@ export const usePokemonStore = defineStore("pokemon", () => {
     getPokemon,
     setPokemonNameToSearch,
     pokemonName,
+    pokemonHeight,
+    pokemonWeight,
+    pokemonTypes,
+    pokemonAbilities,
+    pokemonStats,
+    pokemonSprites,
+    pokemonGameIndex,
+    pokemonNationalId,
+    pokemonNameToSearch,
   };
 });
