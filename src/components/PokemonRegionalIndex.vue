@@ -19,6 +19,22 @@ const gameIndex = computed(() => {
 
 <template>
   <div class="container">
+    <h1>#{{ gameIndex ? gameIndex : usePokemonStore().pokemonNationalId }}</h1>
+    <select
+      v-if="props.pokemonName && props.pokemonName?.length > 1"
+      v-model="selectedVersion"
+      id="versions-select"
+      placeholder="Selecione um jogo"
+    >
+      <option value="" disabled selected hidden>Game #:</option>
+      <option
+        v-for="versionName in props.pokemonName"
+        :key="versionName.version.name"
+        :value="versionName.version.name"
+      >
+        {{ versionName.version.name.toUpperCase() }}
+      </option>
+    </select>
   </div>
 </template>
 
