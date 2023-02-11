@@ -22,6 +22,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 header {
   line-height: 1.5;
   max-height: 100vh;
+  display: none;
 }
 
 .logo {
@@ -34,6 +35,7 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  display: none;
 }
 
 nav a.router-link-exact-active {
