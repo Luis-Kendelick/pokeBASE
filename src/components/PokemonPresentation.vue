@@ -71,4 +71,39 @@ const pokemonPresentationInfo = usePokemonStore();
   padding: 10px;
 }
 
+.principal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 10px;
+}
+.header {
+  font-size: 1.5rem;
+  width: auto;
+  height: 30px;
+}
+.pokemon-image {
+  width: 150px;
+  height: 150px;
+}
+.regional-index {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.types-container {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  height: auto;
+}
 </style>
