@@ -15,7 +15,6 @@ export const usePokemonStore = defineStore("pokemon", () => {
   });
   // actions
   const getPokemon = async () => {
-    console.log()
     pokemonNameToSearch.value &&
       (await api
         .getPokemonByName(pokemonNameToSearch.value)
