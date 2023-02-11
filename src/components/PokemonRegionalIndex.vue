@@ -39,4 +39,22 @@ const gameIndex = computed(() => {
 </template>
 
 <style scoped>
+.container {
+  max-height: 50px;
+  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+select {
+  width: 100%;
+  height: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
 </style>
