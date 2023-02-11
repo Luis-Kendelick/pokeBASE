@@ -27,4 +27,19 @@ const getTypeColor = (type: string) => {
 </template>
 
 <style scoped>
+.type-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  height: 30px;
+  width: 100px;
+  border: 2px solid #ccc;
+}
+p {
+  font-size: 1rem;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
 </style>
