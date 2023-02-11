@@ -6,6 +6,9 @@ const props = defineProps<{
   pokeTypes: PokemonType | undefined;
 }>();
 
+const getTypeColor = (type: string) => {
+  return pokemonTypeColors[type as keyof typeof pokemonTypeColors];
+};
 </script>
 
 <template>
