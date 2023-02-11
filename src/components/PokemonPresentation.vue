@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { usePokemonStore } from "@/stores/pokemon";
+import {
+  PokemonImage,
+  PokemonName,
+  PokemonPhysicalAttrs,
+  PokemonRegionalIndex,
+  PokemonTypes,
+} from "./index";
 </script>
 
 <template>
