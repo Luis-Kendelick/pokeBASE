@@ -11,6 +11,35 @@ import {
 
 <template>
   <div class="container" style="">
+    <input type="text" v-model="pokemonToSearch" placeholder="Pokemon Name" />
+    <button @click="handleSearch">Search</button>
+    <PokemonName
+      class="pokemon-name header"
+      :pokeName="pokemonPresentationInfo.pokemonName"
+    />
+    <div class="principal-content main">
+      <PokemonRegionalIndex
+        class="regional-index"
+        :pokemonName="pokemonPresentationInfo.pokemonGameIndex"
+      />
+      <PokemonImage
+        class="pokemon-image"
+        :pokeSprites="pokemonPresentationInfo.pokemonSprites"
+      />
+      <div class="types-container">
+        <PokemonTypes
+          v-for="type in pokemonPresentationInfo.pokemonTypes"
+          class="types"
+          :pokeTypes="type"
+          :key="type.type.url"
+        />
+      </div>
+    </div>
+    <PokemonPhysicalAttrs
+      class="physical-attrs"
+      :pokeHeight="pokemonPresentationInfo.pokemonHeight"
+      :pokeWeight="pokemonPresentationInfo.pokemonWeight"
+    />
   </div>
 </template>
 
