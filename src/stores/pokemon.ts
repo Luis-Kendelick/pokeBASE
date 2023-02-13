@@ -21,47 +21,47 @@ export const usePokemonStore = defineStore("pokemon", () => {
 
   // getter
   const pokemonName = computed(() => {
-    return pokemon.value?.name;
+    return pokemonState.value.pokemon?.name;
   });
 
   const pokemonHeight = computed(() => {
     return (
-      (pokemon.value?.height &&
-        (pokemon.value?.height * 10).toFixed(1) + " cm") ||
+      (pokemonState.value.pokemon?.height &&
+        (pokemonState.value.pokemon?.height * 10).toFixed(1) + " cm") ||
       "... cm"
     );
   });
 
   const pokemonWeight = computed(() => {
     return (
-      (pokemon.value?.weight &&
-        (pokemon.value?.weight / 10).toFixed(1) + " kg") ||
+      (pokemonState.value.pokemon?.weight &&
+        (pokemonState.value.pokemon?.weight / 10).toFixed(1) + " kg") ||
       "... kg"
     );
   });
 
   const pokemonTypes = computed(() => {
-    return pokemon.value?.types;
+    return pokemonState.value.pokemon?.types;
   });
 
   const pokemonAbilities = computed(() => {
-    return pokemon.value?.abilities;
+    return pokemonState.value.pokemon?.abilities;
   });
 
   const pokemonStats = computed(() => {
-    return pokemon.value?.stats;
+    return pokemonState.value.pokemon?.stats;
   });
 
   const pokemonSprites = computed(() => {
-    return pokemon.value?.sprites;
+    return pokemonState.value.pokemon?.sprites;
   });
 
   const pokemonGameIndex = computed(() => {
-    return pokemon.value?.game_indices;
+    return pokemonState.value.pokemon?.game_indices;
   });
 
   const pokemonNationalId = computed(() => {
-    return pokemon.value?.id;
+    return pokemonState.value.pokemon?.id;
   });
 
   // actions
