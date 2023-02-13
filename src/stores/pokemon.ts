@@ -69,11 +69,18 @@ export const usePokemonStore = defineStore("pokemon", () => {
     pokemonNameToSearch.value &&
       (await api
         .getPokemonByName(pokemonNameToSearch.value)
+        .then((res) => {
+          pokemonState.value.loading = true;
+          return res;
+        })
         .then((res: Pokemon) => {
-          pokemon.value = res;
+          pokemonState.value.pokemon = res;
+          pokemonState.value.loading = false;
         })
         .catch((err) => {
           console.log(err);
+          pokemonState.value.loading = false;
+          pokemonState.value.error = true;
         }));
   };
 
