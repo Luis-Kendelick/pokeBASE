@@ -2,11 +2,21 @@ import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import { PokemonClient, type Pokemon, type PokemonColor } from "pokenode-ts";
 
+interface PokemonStore {
+  pokemon: Pokemon | undefined;
+  loading: boolean;
+  error: boolean;
+}
+
 export const usePokemonStore = defineStore("pokemon", () => {
   const api = new PokemonClient();
 
   // state
-  const pokemon = ref<Pokemon>();
+  const pokemonState = ref<PokemonStore>({
+    pokemon: undefined,
+    loading: false,
+    error: false,
+  });
   const pokemonNameToSearch = ref<string>();
 
   // getter
