@@ -5,6 +5,11 @@
   height: auto;
   display: flex;
 }
+@media screen and (min-width: 1024px) {
+  #app {
+    justify-content: center;
+  }
+}
 
 body {
   width: 100vw;
