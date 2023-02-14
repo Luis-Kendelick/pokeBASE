@@ -7,7 +7,9 @@ const props = defineProps<{
 }>();
 </script>
 <template>
-  <div v-if="props.pokeSprites?.front_default" class="pokemon-photo">
+  <div v-if="pokeInfo.pokemonSprites?.front_default === undefined">
+    Procure um pokemon.
+  </div>
     <img
       :src="props.pokeSprites?.front_default"
       :alt="usePokemonStore().pokemonName"
