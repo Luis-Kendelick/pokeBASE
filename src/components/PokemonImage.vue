@@ -1,21 +1,20 @@
 <script setup lang="ts">
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import { usePokemonStore } from "@/stores/pokemon";
-import type { PokemonSprites } from "pokenode-ts";
-const props = defineProps<{
-  pokeSprites: PokemonSprites | undefined;
-}>();
+
+const pokeInfo = usePokemonStore();
 </script>
 <template>
   <div v-if="pokeInfo.pokemonSprites?.front_default === undefined">
     Procure um pokemon.
   </div>
+  <div v-if="pokeInfo.pokemonSprites?.front_default" class="pokemon-photo">
     <img
-      :src="props.pokeSprites?.front_default"
+      :src="pokeInfo.pokemonSprites?.front_default"
       :alt="usePokemonStore().pokemonName"
     />
   </div>
-  <LoadingSpinner v-else />
+  <LoadingSpinner v-if="pokeInfo.pokemonHasError" />
 </template>
 
 <style scoped>
