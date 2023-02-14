@@ -11,7 +11,7 @@ const pokeInfo = usePokemonStore();
   <div v-if="pokeInfo.pokemonSprites?.front_default" class="pokemon-photo">
     <img
       :src="pokeInfo.pokemonSprites?.front_default"
-      :alt="usePokemonStore().pokemonName"
+      :alt="usePokemonStore().pokemonName + ' image'"
     />
   </div>
   <LoadingSpinner v-if="pokeInfo.pokemonHasError" />
