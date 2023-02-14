@@ -1,11 +1,12 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import { PokemonClient, type Pokemon, type PokemonColor } from "pokenode-ts";
+import type { AxiosError } from "axios";
 
 interface PokemonStore {
   pokemon: Pokemon | undefined;
   loading: boolean;
-  error: boolean;
+  error: AxiosError | undefined;
 }
 
 export const usePokemonStore = defineStore("pokemon", () => {
@@ -15,7 +16,7 @@ export const usePokemonStore = defineStore("pokemon", () => {
   const pokemonState = ref<PokemonStore>({
     pokemon: undefined,
     loading: false,
-    error: false,
+    error: undefined,
   });
   const pokemonNameToSearch = ref<string>();
 
@@ -64,6 +65,14 @@ export const usePokemonStore = defineStore("pokemon", () => {
     return pokemonState.value.pokemon?.id;
   });
 
+  const pokemonIsLoading = computed(() => {
+    return pokemonState.value.loading;
+  });
+
+  const pokemonHasError = computed(() => {
+    return pokemonState.value.error;
+  });
+
   // actions
   const getPokemon = async () => {
     pokemonNameToSearch.value &&
@@ -80,7 +89,7 @@ export const usePokemonStore = defineStore("pokemon", () => {
         .catch((err) => {
           console.log(err);
           pokemonState.value.loading = false;
-          pokemonState.value.error = true;
+          pokemonState.value.error = err;
         }));
   };
 
@@ -101,5 +110,10 @@ export const usePokemonStore = defineStore("pokemon", () => {
     pokemonGameIndex,
     pokemonNationalId,
     pokemonNameToSearch,
+    pokemonIsLoading,
+    pokemonHasError,
+  };
+});
+
   };
 });
