@@ -137,8 +137,10 @@ export const usePokemonColorStore = defineStore("pokemonColor", () => {
         .catch((err) => {
           console.log(err);
         }));
-
+  };
 
   return {
     getPokemonColor,
     pokemonColorValue,
+  };
+});
