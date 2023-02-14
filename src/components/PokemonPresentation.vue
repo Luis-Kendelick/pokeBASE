@@ -27,8 +27,11 @@ const pokemonPresentationInfo = usePokemonStore();
 
 <template>
   <div class="container" style="">
-    <input type="text" v-model="pokemonToSearch" placeholder="Pokemon Name" />
-    <button @click="handleSearch">Search</button>
+    <div class="search-container">
+      <label for="pokemon-name">Pokemon Name</label>
+      <input type="text" v-model="pokemonToSearch" placeholder="Pokemon Name" />
+      <button @click="handleSearch">Search</button>
+    </div>
     <PokemonName
       class="pokemon-name header"
       :pokeName="pokemonPresentationInfo.pokemonName"
@@ -69,6 +72,19 @@ const pokemonPresentationInfo = usePokemonStore();
   height: 100%;
   border-radius: 10px;
   padding: 10px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
 }
 
 .principal-content {
