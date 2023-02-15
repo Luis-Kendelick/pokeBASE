@@ -114,33 +114,3 @@ export const usePokemonStore = defineStore("pokemon", () => {
     pokemonHasError,
   };
 });
-
-export const usePokemonColorStore = defineStore("pokemonColor", () => {
-  const api = new PokemonClient();
-
-  // state
-  const pokemonColor = ref<PokemonColor>();
-
-  // getter
-  const pokemonColorValue = computed(() => {
-    return pokemonColor.value?.name;
-  });
-
-  // actions
-  const getPokemonColor = async (name: string) => {
-    name &&
-      (await api
-        .getPokemonColorByName(name)
-        .then((res: PokemonColor) => {
-          pokemonColor.value = res;
-        })
-        .catch((err) => {
-          console.log(err);
-        }));
-  };
-
-  return {
-    getPokemonColor,
-    pokemonColorValue,
-  };
-});
